@@ -15,4 +15,12 @@
   </p>
 
   <button ion-button secondary menuToggle>Toggle Menu</button>
+  <form (ngSubmit)="logout()" #logOutForm="ngForm">
+    <ion-row>
+      <ion-col class="signup-col">
+        <button ion-button class="submit-btn" full type="submit" [disabled]="!logOutForm.form.valid">Logout</button>
+      </ion-col>
+    </ion-row>
+
+  </form>
 </ion-content>

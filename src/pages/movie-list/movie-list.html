@@ -1,0 +1,40 @@
+<!--
+  Generated template for the MovieListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>MovieList</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="list-avatar-page">
+
+  <ion-list>
+    <ion-item *ngFor="let movie of movies">
+      <ion-list-header><h2>{{ movie.title }}</h2><span class="item item-text-wrap" [innerHTML]="sanitizer.bypassSecurityTrustHtml(movie.field_ratings)"></span></ion-list-header>
+      <ion-thumbnail item-start>
+        <img [src]="movie.field_poster">
+      </ion-thumbnail>
+      <p class="item item-text-wrap" [innerHTML]="movie.body"></p>
+      <ion-note item-end>{{ movie.field_genre }}</ion-note>
+      <ion-item>
+        <h3>{{ movie.actors }}</h3>
+      </ion-item>
+    </ion-item>
+    <a ion-item (click)="openModal({charNum: 0})">
+      <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
+    </a>
+
+  </ion-list>
+
+
+</ion-content>
