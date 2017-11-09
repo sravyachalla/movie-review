@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 
-import { IonicPage, NavController, NavParams,AlertController, LoadingController, Loading } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,AlertController, LoadingController, Loading, ViewController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { MovieListPage } from './movie-list';
 import { LoginPage } from '../../pages/login/login';
@@ -11,24 +11,32 @@ import { LoginPage } from '../../pages/login/login';
     templateUrl: 'add-movie.html',
 })
 export class AddMoviePage {
-    movie = { title: ''};
-    constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams,private nav: NavController, private auth: AuthServiceProvider, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {}
+    movie = { title: '', description: '',ratings: ''};
+    constructor(public http: Http, public viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams,private nav: NavController, private auth: AuthServiceProvider, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {}
+
     addMovie(){
         let data = JSON.stringify({
             title: {
                 value: this.movie.title
+            },
+            body: {
+                value: this.movie.title
+            },
+            field_ratings: {
+                value: this.movie.ratings
             },
             type: {
                 target_id: 'movies',
             },
             _links: {
                 type: {
-                    href: 'http:\/\/d8-sandbox\/rest\/type\/node\/movies'
+                    href: 'http:\/\/d8ionic\/rest\/type\/node\/movies'
                 }
             },
 
         });
-        let addmovieUrl = 'http://d8-sandbox/entity/node?_format=hal_json';
+        console.log(data);
+        let addmovieUrl = 'http://d8ionic/entity/node?_format=hal_json';
         let headers = new Headers();
         headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
         headers.append('Accept', 'application/hal+json');
@@ -42,5 +50,8 @@ export class AddMoviePage {
                 console.log(error);
                 alert('OOps');
             });
+    }
+    dismiss() {
+        this.viewCtrl.dismiss();
     }
 }

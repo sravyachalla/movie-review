@@ -8,7 +8,7 @@ import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { MovieListPage } from '../pages/movie-list/movie-list';
 import { AddMoviePage } from '../pages/movie-list/add-movie';
-import { CompanyListPage } from '../pages/company-list/company-list';
+import { MovieDetailedPage } from '../pages/movie-detailed/movie-detailed';
 
 @Component({
   templateUrl: 'app.html'
@@ -30,7 +30,7 @@ export class MyApp {
       { title: 'Login', component: LoginPage },
       { title: 'MovieListPage', component: MovieListPage },
       { title: 'AddMoviePage', component: AddMoviePage },
-      { title: 'CompanyListPage', component: CompanyListPage },
+      { title: 'MovieDetailedPage', component: MovieDetailedPage },
     ];
 
   }

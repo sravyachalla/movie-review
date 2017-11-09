@@ -10,7 +10,7 @@ import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { MovieListPage } from '../pages/movie-list/movie-list';
 import { AddMoviePage } from '../pages/movie-list/add-movie';
-import { CompanyListPage } from '../pages/company-list/company-list';
+import { MovieDetailedPage } from '../pages/movie-detailed/movie-detailed';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -25,7 +25,7 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
     LoginPage,
     MovieListPage,
     AddMoviePage,
-    CompanyListPage
+    MovieDetailedPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +40,7 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
     LoginPage,
     MovieListPage,
     AddMoviePage,
-    CompanyListPage
+    MovieDetailedPage
   ],
   providers: [
     StatusBar,

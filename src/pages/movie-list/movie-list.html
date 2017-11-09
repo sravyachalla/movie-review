@@ -20,18 +20,18 @@
 
   <ion-list>
     <ion-item *ngFor="let movie of movies">
-      <ion-list-header><h2>{{ movie.title }}</h2><span class="item item-text-wrap" [innerHTML]="sanitizer.bypassSecurityTrustHtml(movie.field_ratings)"></span></ion-list-header>
+        <span>{{ movie.title }}</span>
+        <span>{{ movie.actors }}</span>
+        <span class="item item-text-wrap" [innerHTML]="sanitizer.bypassSecurityTrustHtml(movie.field_ratings)"></span>
       <ion-thumbnail item-start>
         <img [src]="movie.field_poster">
       </ion-thumbnail>
-      <p class="item item-text-wrap" [innerHTML]="movie.body"></p>
       <ion-note item-end>{{ movie.field_genre }}</ion-note>
-      <ion-item>
-        <h3>{{ movie.actors }}</h3>
-      </ion-item>
+      <button ion-button [navPush]="moviePage" [navParams]="movie">View More</button>
     </ion-item>
     <a ion-item (click)="openModal({charNum: 0})">
-      <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
+      <!--<ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>-->
+      <button ion-button>Add Movie</button>
     </a>
 
   </ion-list>

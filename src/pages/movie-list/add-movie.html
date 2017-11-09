@@ -13,7 +13,7 @@
 </ion-header>
 
 <ion-content>
-    <form (ngSubmit)="addMovie()" #addMovieForm="ngForm">
+    <form (ngSubmit)="addMovie()" class="addMovie" #addMovieForm="ngForm">
         <ion-row>
             <ion-col>
                 <ion-list inset>
@@ -21,8 +21,12 @@
                     <ion-item>
                         <ion-input type="text" placeholder="movie-title" name="movie-title" [(ngModel)]="movie.title" required></ion-input>
                     </ion-item>
-
-
+                    <ion-item>
+                        <ion-input type="text" placeholder="movie-description" name="movie-description" [(ngModel)]="movie.description"></ion-input>
+                    </ion-item>
+                    <ion-item class="rating">
+                        <ion-input type="number" min="0" max="5" name="movie-ratings" [(ngModel)]="movie.ratings"></ion-input>
+                    </ion-item>
                 </ion-list>
             </ion-col>
         </ion-row>

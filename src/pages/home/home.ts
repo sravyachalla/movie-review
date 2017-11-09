@@ -16,7 +16,7 @@ export class HomePage {
 
   public logout() {
     //this.showLoading()
-    let apilogoutUrl = 'http://d8-sandbox/user/logout';
+    let apilogoutUrl = 'http://d8ionic/user/logout';
 
     this.http.get(apilogoutUrl)
         .subscribe(data => {

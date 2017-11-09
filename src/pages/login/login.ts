@@ -36,7 +36,7 @@ export class LoginPage {
       name: this.registerCredentials.name,
       pass: this.registerCredentials.password,
     });
-    let apiloginUrl = 'http://d8-sandbox/user/login?_format=json';
+    let apiloginUrl = 'http://d8ionic/user/login?_format=json';
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
@@ -44,7 +44,7 @@ export class LoginPage {
         .subscribe(data => {
             console.log(data['_body']);
             localStorage.setItem('loggedinData', data['_body']);
-            let apiTokenUrl = 'http://d8-sandbox/rest/session/token';
+            let apiTokenUrl = 'http://d8ionic/rest/session/token';
             this.http.get(apiTokenUrl)
                 .subscribe(data => {
                     localStorage.setItem('loggedin_token', data['_body']);
